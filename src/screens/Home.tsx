@@ -1,12 +1,15 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
+import {useGetLegalDongFromCoords} from '../queries/geolocation/geolocation';
 
 interface HomeScreenProps {}
 
 const HomeScreen = ({}: HomeScreenProps) => {
+  const {data} = useGetLegalDongFromCoords();
+
   return (
     <SafeAreaView>
-      <Text>Main</Text>
+      <Text>{data}</Text>
     </SafeAreaView>
   );
 };
