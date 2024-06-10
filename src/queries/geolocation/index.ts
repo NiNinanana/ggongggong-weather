@@ -10,6 +10,6 @@ export const useGetLegalDongFromCoords = () => {
     queryFn: () => getLegalDongFromCoords({coords}),
     queryKey: geolocationKeys.legalDongFromCoords(coords),
     enabled: !!coords,
-    select: res => res.results[0].region.area3.name,
+    select: res => res.legalDong,
   });
 };
