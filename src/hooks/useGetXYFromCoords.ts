@@ -9,7 +9,7 @@ const OLAT = 38.0; // 기준점 위도(degree)
 const XO = 43; // 기준점 X좌표(GRID)
 const YO = 136; // 기1준점 Y좌표(GRID)
 
-const getXYFromCoords = ({coords}: {coords: Coords}) => {
+const getXYFromCoords = ({coords}: {coords?: Coords}) => {
   let rs: Record<'nx' | 'ny', number> = {
     nx: 60,
     ny: 127,
