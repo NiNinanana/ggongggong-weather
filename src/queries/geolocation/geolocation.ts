@@ -1,20 +1,10 @@
-import Geolocation from '@react-native-community/geolocation';
 import {useQuery} from '@tanstack/react-query';
-import {useEffect, useState} from 'react';
 import {getLegalDongFromCoords} from '../../apis/geolocation';
-import {Coords} from '../../types/geolocation';
+import useGetCurrentPosition from '../../hooks/useGetCurrentPosition';
 import {geolocationKeys} from './keys';
 
 export const useGetLegalDongFromCoords = () => {
-  const [coords, setCoords] = useState<Coords>();
-
-  useEffect(() => {
-    Geolocation.getCurrentPosition(info => {
-      const longitude = info.coords.longitude;
-      const latitude = info.coords.latitude;
-      setCoords(`${longitude},${latitude}`);
-    });
-  }, []);
+  const {coords} = useGetCurrentPosition();
 
   return useQuery({
     queryFn: () => getLegalDongFromCoords({coords}),
