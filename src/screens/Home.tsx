@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {useGetLegalDongFromCoords} from '../queries/geolocation';
 import TimeWeather from '../components/TimeWeather';
 
@@ -10,10 +10,16 @@ const HomeScreen = ({}: HomeScreenProps) => {
 
   return (
     <SafeAreaView>
-      <Text>{legalDong}</Text>
+      <Text style={styles.text}>{legalDong}</Text>
       <TimeWeather />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    color: 'black',
+  },
+});
 
 export default HomeScreen;
