@@ -26,6 +26,7 @@ const TimeWeather = ({}: TimeWeatherProps) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    backgroundColor: 'gray',
   },
   contentContainer: {
     gap: 10,
