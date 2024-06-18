@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {useGetLegalDongFromCoords} from '../queries/geolocation';
 import TimeWeather from '../components/TimeWeather';
+import CurrentWetaher from '../components/CurrentWeather';
 
 interface HomeScreenProps {}
 
@@ -11,6 +12,7 @@ const HomeScreen = ({}: HomeScreenProps) => {
   return (
     <SafeAreaView>
       <Text style={styles.text}>{legalDong}</Text>
+      <CurrentWetaher />
       <TimeWeather />
     </SafeAreaView>
   );
