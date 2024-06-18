@@ -1,12 +1,15 @@
 import Geolocation from '@react-native-community/geolocation';
 import {useEffect, useState} from 'react';
 import {Coords} from '../types/geolocation';
-import {PermissionsAndroid} from 'react-native';
+import {PermissionsAndroid, Platform} from 'react-native';
 
 const useGetCurrentPosition = () => {
   const [coords, setCoords] = useState<Coords>();
 
   const requestLocationPermission = async () => {
+    if (Platform.OS !== 'android') {
+      return true;
+    }
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
